@@ -1,0 +1,48 @@
+<%- include ('./partials/_header') %>
+<nav class="navbar navbar-dark bg-dark mb-4">
+    <a href="/" class="navbar-brand">Tabla de Clientes</a>
+</nav> <!-- LIST -->
+            <div class="container">
+              <table class="container">
+                <thead>
+                  <tr>
+                    <th>N°</th>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Telefono</th>
+                    <th>Opciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% for(var i=0; i < tasks.length; i++) { %>
+                    <tr>
+                      <td><%= i + 1%></td>
+                      <td><strong><%= tasks[i].nombre %></strong></td>
+                      <td><%= tasks[i].email %></td>
+                      <td><%= tasks[i].phone %></td>
+                      <td>
+                        <a
+                          class="btn btn-success, btn btn-dark "
+                          href="/information/<%= tasks[i]._id %>">
+                          Enviar Mensaje
+                        </a>
+
+                        <a 
+                          href="/delete/<%= tasks[i]._id %>"
+                          class="btn btn-danger">
+                          Borrar
+                        </a>
+
+                        <a 
+                          href="/edit/<%= tasks[i]._id %>" class="btn btn-info">
+                          Editar
+                        </a>
+                      </td>
+                    </tr>
+                  <% } %>
+                </tbody>
+              </tbody>
+            </div>
+<div>
+  <%- include ('./partials/_footer') %>
+</div>

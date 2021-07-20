@@ -1,0 +1,35 @@
+<%- include ('./partials/_header') %>
+<nav class="navbar navbar-dark bg-dark mb-4">
+    <a href="/" class="navbar-brand">Tabla de Clientes</a>
+</nav>
+
+            <!-- LIST -->
+            <div class="container">
+                <table class="container">
+                  <thead>
+                    <tr>
+                      <th>N°</th>
+                      <th>Nombre</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% for(var i=0; i < messages.length; i++) { %>
+                        <tr>
+                          <td><%= i + 1%></td>
+                          <td><strong><%= messages[i].Mensaje %></strong></td>
+                          <td>
+                            <a href="/delete-/<%= messages[i]._id %>"
+                              class="btn btn-danger">
+                              Borrar
+                            </a>
+                            <a href="/Mssedit/<%= messages[i]._id %>" class="btn btn-info">
+                              Editar
+                            </a>
+                          </td>
+                        </tr>
+                      <% } %>
+                  </tbody>
+                
+        
+            </div>
+    <%- include ('./partials/_footer') %>

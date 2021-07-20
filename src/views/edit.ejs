@@ -1,0 +1,31 @@
+<%- include ('./partials/_header') %>
+<nav class="navbar navbar-dark bg-dark mb-4">
+    <a href="/" class="navbar-brand">Editar clientes</a>
+</nav>
+
+<div class="container">
+  <div class="row">
+    <!--FORM-->
+    <div class="col-md-5 offset-md-3">
+      <div class="card">
+        <div class="card-body">
+          <form action="/edit/<%= task._id %>" method="POST">
+            <div class="form-group">
+              <input class="form-control" type="text" name="nombre" placeholder="Title" value="<%= task.nombre %>">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" name="email" placeholder="Title" value="<%= task.email %>">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" name="phone" placeholder="Telefono" value="<%= task.phone %>">
+            </div>
+            <button class="btn btn-primary" type="submit">
+              Guardar 
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%- include ('./partials/_footer') %>

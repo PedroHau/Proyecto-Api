@@ -1,0 +1,94 @@
+--Para poder abrir el archivo PROYECTO-API--
+1-Es necesario activar la base de datos desde la consola poniendo el siguiente comando mongod
+2-seguido de eso abrir una nueva terminal para poder poner el siguiente comando que es npm run dev
+--en un dado caso que el proyecto no corra se tendra que descargar algunas dependecias--
+3-desde la terminal el siguiente comando que es npm install express mongoose ejs morgan 
+4-despues este comando que va a facilitar el proceso del codigo desde la terminalñ npm i nodemon
+--Con lo cual ya deberia correr le proyecto sin ningun problema
+
+--
+el proyecto desde cero fue creado con nodejs, exprees y mongod 
+
+empeze desde el archivo app.js configurando mi proyecto de la manera en la que se me facilite el trabajar con mi proyecto
+primero conectando mi base de datos de esta manera 
+
+mongoose.connect('mongodb://localhost/proyecto-api')
+.then(db => console.log('db connected'))
+.catch(err => console.log(err));
+
+segundo configurando donde se encontraran mis rutas de esta manera
+const indexRoutes = require('./routes/index')
+
+tercero diciendole en que puerto quiero quiero que se reflejen mis vistas utilizando un motor de plantillas ejs que jala sin problemas como si fuera HTLM
+app.set('port', process.env.PORT || 3000);
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+
+cuarto para poder ejectuar mi proyecto modifique mi package.json en la parte de scripts 
+poniendole  "dev": "nodemon src/app.js" para que sea mas rapido abrir el archivo
+
+quinto cree una carpeta llamada src donde voy a tener todos mis archivos para no tener todo regado
+
+dentro de mi archivo src se encuentra los models, routes, views y mi archivo importante app.js donde confuigure mi proyecto
+
+sexto en la parte de modelo cree dos archivos uno para mensajes y otro para mis clientes
+
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+const MassSchema = new Schema({
+    Mensaje: String
+});
+
+module.exports = mongoose.model('messages', MassSchema);
+
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+const TaskSchema = new Schema({
+    nombre: String,
+    email: String,
+    phone: Number,
+});
+
+module.exports = mongoose.model('tasks', TaskSchema);
+
+septima la carpeta routes donde se aloja mi archivo index.js es donde se encuentran mis rutas 
+para poder controlar algunas funciones y vistaS de mi proyecto de esta manera
+
+router.get('/', async (req, res) => {
+    res.render('dashboard');
+});
+
+aqui le estoy diciendo que mi la pagina principal que se aloja en mi puerto 3000 este mi vista principal y asi ire modificando 
+y agregando mis vistas y funciones que en este caso agregue como eliminar, editar y guardar 
+
+octava en mi carpeta views se encuentra mis vistas con un motor de plantilla que es ejs
+con lo cual funciona como un html, tengo 10 vistas con la cual las importantes son ms-email y ms-whatsapp 
+
+por que cree dos vistas diferentes?
+
+uno es para enviar correos y el otro para whatsApp de esta manera en una solo se refleja el nombre y el correo en la segunda solo el nopmbre y numero del clientes
+
+--como funciona--
+
+como el proyecto era desde cero tuve que crear un crud para agregar clientes a mi base de datos
+con lo cual tenia que ponerle funciones como registrar,editar, eliminar y la funcion importante que era enviar mensaje
+con lo cual refleje mis clientes en una tabla con las 3 funciones (editar, eliminar y enviar mensajes ) 
+despues coloque una vista llamada informacion donde me reflejara el nombre de mi cliente su telefono y su correo 
+poniendole 4 botones el primer boton le llame registro de mensajes donde el usuario tendra que registrar sus mensajes que le gustaria mandar al cliente, 
+el segundo le llame mensajes guardados donde podra ver los mensajes que creo para enviarselos al cliente
+el tercero se le llamo email donde tendra que salir una vista con su informacion del client6e como nombre y correo.
+el cuarto se le llamo whatsApp donde igual sale una vista  con la informacion del cliente com nombrte y telefono.
+
+las vistas email y whatsApp son similares ya que  contienen lo msimo que es informacion que se jalo desde la base de datos 
+y la eleccion de los mensajes creados que se almacenan desde la base de datos.
+
+
+
+
+--Respondiendo las preguntas--
+
+se termino?
+
+no pude conectar con las plataformas ya que whatsApp requiere que sea una persona y no un bot quien envie los mensajes.
+
+con email se creo otro proyecto para ver la funcionalidad del envio de correo pero solo enviava correos a un mismo correo y no como queremos.

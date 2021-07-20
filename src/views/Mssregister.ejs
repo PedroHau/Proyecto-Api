@@ -1,0 +1,31 @@
+<%- include ('./partials/_header') %>
+<nav class="navbar navbar-dark bg-dark mb-4">
+    <a href="/" class="navbar-brand">Registro de mensajes predeterminados</a>
+</nav>
+<div class="conteiner">
+    <div class="row">
+        <!--FORM-->
+        <div class="container p-4">
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <div class="card">
+                        <div class="card-body">
+                                <h1>Registra el Mensaje</h1>
+                            <form action="/add-" method="post">
+                                <div class="form-group">
+                                <input class="form-control" type="text" name="Mensaje" placeholder="Mensaje">
+                                </div>
+                                <div class="card-body">
+                                    <button class="btn btn-primary btn-block" type="submit">
+                                    Registrar
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <%- include ('./partials/_footer') %>

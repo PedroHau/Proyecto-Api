@@ -1,0 +1,31 @@
+<%- include ('./partials/_header') %>
+<nav class="navbar navbar-dark bg-dark mb-4">
+    <a href="/" class="navbar-brand">Formulario de registro</a>
+</nav>
+<div class="conteiner">
+    <div class="row">
+        <!--FORM-->
+        <div class="col-md-5">
+            <div class="card">
+                <div class="card-body">
+                    <h1>Registrate</h1>
+                <form action="/add" method="post">
+                    <div class="form-group">
+                     <input class="form-control" type="text" name="nombre" placeholder="Nombre">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="email" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="phone" placeholder="Telefono">
+                    </div>
+                    <button class="btn btn-primary btn-block" type="submit">
+                       Registrar
+                    </button>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <%- include ('./partials/_footer') %>

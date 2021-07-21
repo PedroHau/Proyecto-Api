@@ -2,9 +2,7 @@
 <nav class="navbar navbar-dark bg-dark mb-4">
     <a href="/" class="navbar-brand">Email</a>
 </nav>
-<pre>
-    
-</pre>
+
     <div class="container p-4">
         <div class="row">
             <div class="col-md-6 offset-md-3">
@@ -18,22 +16,16 @@
                             </div>
 
                             <div class="form-group">
-                                <p class="text-capitalize" autofocus >Email</p>
+                                <p class="text-capitalize" autofocus >Correo</p>
                                 <input type="text" name="email" placeholder="Email" class="form-control">
                             </div>
 
                             <div class="form-group">
-                                <p class="text-capitalize" autofocus >Correo</p>
-                                <input type="text" name="phone" placeholder="Phone" class="form-control">
-                            </div>
-
-                            <div class="form-group">
                                 <p class="text-capitalize" autofocus >Mensaje</p>
-                                <select name="" id="">
-                                    <option value="" placeholder="mensajes">1</option>
-                                    <option value="" placeholder="mensajes">2</option>
-                                    <option value="" placeholder="mensajes">3</option>
-                                     
+                                <select name="" id="<%= messages.Mensaje %>">
+                                    <% for(var i=0; i < messages.length; i++) { %>  
+                                          <option value=""><strong><%= messages[i].Mensaje %></strong></option>                                  
+                                    <% } %> 
                                 </select>
                                 
                             </div>

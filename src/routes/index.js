@@ -103,18 +103,16 @@ router.get('/information/:id', async (req, res) => {
 //Ruta para enviar los mensajes de WhatsApp y Email
 
 router.get('/ms-email', async (req, res) => {
-    const { id } = req.params;
-    const tasks = await Task.find();
-    console.log(tasks)
+    const messages = await Mss.find();
     res.render('ms-email', {
-      tasks
+        messages
     });
 });
 
 router.get('/ms-whatsapp', async (req, res) => {
-    const tasks = await Task.find();
+    const messages = await Mss.find();
     res.render('ms-whatsapp', {
-      tasks
+        messages
     });
 });
 

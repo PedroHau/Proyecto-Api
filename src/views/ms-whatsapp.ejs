@@ -19,11 +19,10 @@
 
                             <div class="form-group">
                                 <p class="text-capitalize" autofocus >Mensaje</p>
-                                <select name="" id="">
-                                    <option value="" placeholder="mensajes">1</option>
-                                    <option value="" placeholder="mensajes">2</option>
-                                    <option value="" placeholder="mensajes">3</option>
-                                     
+                                <select name="" id="<%= messages.Mensaje %>">
+                                    <% for(var i=0; i < messages.length; i++) { %>  
+                                          <option value=""><strong><%= messages[i].Mensaje %></strong></option>                                  
+                                    <% } %> 
                                 </select>
                                 
                             </div>
